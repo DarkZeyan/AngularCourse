@@ -1,4 +1,4 @@
-interface Product{
+export interface Product{
     description: string;
     price: number;
 }
@@ -18,8 +18,8 @@ interface taxCalculationOptions{
     products: Product[];
 }
 
-const shoppingCart = [phone, tablet];
-const tax = 0.16;
+// const shoppingCart = [phone, tablet];
+// const tax = 0.16;
 
 // La desestructuracion de argumentos de interfaces se hace con
 // la sintaxis {propiedad1, propiedad2, ...}:interfaz
@@ -33,7 +33,7 @@ const tax = 0.16;
 
 //     return [total, total * tax];
 // }
-function calculateTax(options:taxCalculationOptions): number[]{
+export function calculateTax(options:taxCalculationOptions): number[]{
     let total = 0;
 
     const {tax, products} = options;
@@ -45,11 +45,9 @@ function calculateTax(options:taxCalculationOptions): number[]{
     return [total, total * tax];
 }
 
-const result = calculateTax({tax, products: shoppingCart});
+// const result = calculateTax({tax, products: shoppingCart});
 
-const [total,taxTotal] = result;
+// const [total,taxTotal] = result;
 
-console.log('Total: ', total );
-console.log('Tax: ', taxTotal);
-
-export {};
+// // console.log('Total: ', total );
+// // console.log('Tax: ', taxTotal);
