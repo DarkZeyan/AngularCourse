@@ -10,6 +10,8 @@ export class Person {
 
     //En TypeScript se hace de esta forma
 
+
+    // La inyeccion de dependencias se hace en el constructor.
     constructor(public name: string, private address: string = 'Sin dirección') {
         this.name = name;
         this.address = address;
