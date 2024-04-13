@@ -1,4 +1,4 @@
-function addNumbers(a:number,b:number):number{ // En el caso de las funciones el intellisense nos indica el tipo de dato que se retorna
+function addNumbers(a: number, b: number): number { // En el caso de las funciones el intellisense nos indica el tipo de dato que se retorna
     // En typescript, si no se indica el tipo de dato que se espera, se asume que es de tipo any
     // Si no sabemos el tipo de dato que se espera, se puede usar any, pero no es recomendable, ya que se pierde la ventaja de usar TypeScript
     // Adicionalmente, usando any, se pierde la capacidad de detectar errores en tiempo de escritura y soltara un warning
@@ -13,27 +13,52 @@ function addNumbers(a:number,b:number):number{ // En el caso de las funciones el
 
 // Se puede definir el tipo de dato que se espera que retorne la funcion
 
-const addNumbersArrow = (a:number,b:number):string => {
+const addNumbersArrow = (a: number, b: number): string => {
     return `${a + b}`; // Error en tiempo de escritura, se espera un numero y se esta retornando un string
 }
 
 
-const result:number = addNumbers(1,2); // Al asignar el resultado de la funcion a una variable, se puede ver el tipo de dato que se espera
-// const result:string = addNumbers(1,2).toString(); // Adicionalmente se puede especificar que se espera otro tipo de dato, pero en caso de esto habra que converitr el tipo de dato;
+// const result:number = addNumbers(1,2); // Al asignar el resultado de la funcion a una variable, se puede ver el tipo de dato que se espera
+// // // const result:string = addNumbers(1,2).toString(); // Adicionalmente se puede especificar que se espera otro tipo de dato, pero en caso de esto habra que converitr el tipo de dato;
 
-const result2:string = addNumbersArrow(1,2); 
+// const result2:string = addNumbersArrow(1,2); 
 
-function multiply(firstNumber:number, secondNumber?:number, base:number = 2):number{
+function multiply(firstNumber: number, secondNumber?: number, base: number = 2): number {
     return firstNumber * base;
 }
 
-const multiplyResult:number = multiply(5);
+// const multiplyResult:number = multiply(5);
 
 
+// console.log({result}); // Se colocan las llaves para imprimir como un objeto y poder ver el tipo de dato que recibio
 
-console.log({result}); // Se colocan las llaves para imprimir como un objeto y poder ver el tipo de dato que recibio
+// console.log({result2});
+// console.log({multiplyResult});
 
-console.log({result2});
-console.log({multiplyResult});
+interface Character {
+    name: string;
+    hp: number;
+    showHp: () => void; // Las funciones se especifican en funcion flecha seguida de su valor de retorno
+}
 
-export {}; //Este paso es innecesario en Angular, pero es necesario en TypeScript para evitar conflictos de variables con el mismo nombre
+const healCharacter = (character:Character, amount: number) => {
+
+    character.hp += amount;
+
+}
+
+
+const zeyan: Character = {
+    name: 'Zeyan',
+    hp: 50,
+    showHp() {
+        console.log(`Puntos de vida: ${this.hp}`);
+    }
+}
+
+healCharacter(zeyan, 20);
+healCharacter(zeyan, 30);
+
+zeyan.showHp();
+
+export { }; //Este paso es innecesario en Angular, pero es necesario en TypeScript para evitar conflictos de variables con el mismo nombre
