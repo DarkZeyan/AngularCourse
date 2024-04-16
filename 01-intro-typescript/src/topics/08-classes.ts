@@ -18,6 +18,21 @@ export class Person {
     }
 }
 
-const spiderman = new Person('Peter Parker', 'New York');
+
+// Extends viene de la herencia de clases
+// Hay que priorizar la composición sobre la herencia
+export class Hero extends Person{
+    constructor(
+        public alterEgo:string,
+        public age: number,
+        public realName: string,
+    ){
+        super(realName, 'New York'); // Constructor de la clase padre.
+
+    }
+}
+
+
+const spiderman = new Hero('Spiderman',45, 'Peter Parker');
 
 console.log(spiderman);
