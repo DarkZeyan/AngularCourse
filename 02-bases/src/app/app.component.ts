@@ -1,3 +1,7 @@
+//AppComponent es el componente principal de la aplicación
+// Los demas componentes funcionan como una sintaxis y simplificacion del codigo
+// de la aplicacion
+//
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,4 +12,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public title: string = 'Hola Mundo!';
   public counter: number = 10;
+
+  increaseBy(value:number): void {
+    this.counter += value;
+  }
+  resetCounter(): void{
+    this.counter = 10;
+  }
 }
