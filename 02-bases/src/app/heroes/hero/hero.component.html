@@ -1,3 +1,17 @@
+<!--
+
+  En Angular se debe priorizar lo mas posible el one way data binding
+  Normalmente se trabaja de manera defecto con two way data binding
+
+  El data binding es la forma en la que se comunican los componentes
+  de Angular con el HTML
+
+  -->
+
+<!--
+  La interpolacion nos permite utilizar cualquier expresion de JavaScript
+ -->
+
 <h1>{{name}}</h1>
 
 
@@ -10,10 +24,10 @@
   <dd> {{age}}</dd>
 
   <td>Método:</td>
-  <dd> algún método</dd>
+  <dd> {{ getHeroDescription()}}</dd>
 
   <td>Capitalizado:</td>
-  <dd> nombre capitalizado</dd>
+  <dd> {{capitalizedName}}</dd>
 
 </dl>
 
