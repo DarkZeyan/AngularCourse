@@ -25,4 +25,15 @@ export class HeroComponent {
     this.age = 25;
   }
 
+  // Angular no esta atento al cambio de valores con Javascript nativo
+  resetValues():void{
+    this.name = 'ironman';
+    this.age = 45;
+
+    /*
+      document.querySelectorAll('h1')!.forEach(element => {
+        element.innerHTML = '<h1>Ironman</h1>';
+      });
+    */
+  }
 }
