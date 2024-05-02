@@ -7,11 +7,22 @@
   <li class="list-group-item">Thor</li>
 </ul> -->
 
-<h3>Heroe eliminado: <small class="text-danger"> HeroName </small></h3>
-<h3>
-  No hay heroes eliminados
-</h3>
-<button class="btn btn-outline-danger">
+
+<div *ngIf="deletedHero; else withoutDeletions">
+
+  <h3>Heroe eliminado: <small class="text-danger"> {{deletedHero}} </small></h3>
+</div>
+
+<ng-template #withoutDeletions>
+
+  <h3>
+    No hay heroes eliminados
+  </h3>
+</ng-template>
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="removeLastHero()"
+  class="btn btn-outline-danger">
   Eliminar ultimo heroe
 </button>
 
