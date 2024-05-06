@@ -18,8 +18,35 @@
     let isEven = even;
     let isOdd = odd;
     "
-    class="list-group-item">
+    class="list-group-item"
+    [ngClass]="{
+      'list-group-item-dark': isLast,
+      'list-group-item-primary': isFirst
+    }"
+    >
+  <!--
 
+    si se coloca la clase de esta forma [class] se esta indicando que se
+    va a modificar la clase de manera dinamica, es decir, que se va a
+    modificar en tiempo de ejecucion. Y javascript va a evaluar la expresion
+    para activarlo.
+
+    La directiva ngClass funciona con un esquema similar a JSON, donde se
+    definen las clases que se quieren agregar y se les asigna un valor booleano
+    para su activacion. En este caso se activa la clase list-group-item-success
+    si la variable isFirst es verdadera, de lo contrario no se activa.
+
+    Es basicamente activacion de clases de manera condicional.
+  -->
+
+  <!--
+    Esto se debe de evitar para sobrecargar el HTML de logica.
+    Se puede hacer pero no se recomienda
+
+    Para esto se recomienda usar la directiva ngClass
+
+    class="list-group-item {{ isFirst ? 'list-group-item-success' : ''}}">
+  -->
     <span class="text-primary"> {{ i+1 }}. </span>
 
     <span>{{character.name}}</span> -
