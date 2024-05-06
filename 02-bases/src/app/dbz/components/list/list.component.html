@@ -1,9 +1,38 @@
 <h4>Listado</h4>
 <ul class="list-group">
-  <li *ngFor="let character of characterList"
+  <!-- Cualquier cosa que va dentro del ngFor es codigo de Javascript
+    Lo que permite agregar mas secciones de codigo para extender su potencial
+    index es un objeto definido por defecto en el engine
+    que avanza conforme el tamaño del objeto utilizado en el ngFor
+    first, last, even, odd son propiedades que se pueden utilizar para el
+    control de los datos. Cabe decir que al igual que Index
+    son proporcionadas directamente por el engine de Angular
+    En caso de necesitar alguna variable impuesta por angular que no sea
+    estas acudir a la documentacion de la directiva ngFor
+  -->
+  <li *ngFor="
+    let character of characterList;
+    let i = index;
+    let isFirst = first;
+    let isLast = last;
+    let isEven = even;
+    let isOdd = odd;
+    "
     class="list-group-item">
+
+    <span class="text-primary"> {{ i+1 }}. </span>
+
     <span>{{character.name}}</span> -
+
     <strong>Power: </strong>
     {{ character.power }}
+
+    <!-- <span>Es el primero {{isFirst}}</span>
+    <span>Es el ultimo {{isLast}}</span> -->
+
+
+<!--
+    <span>Es Par: {{isEven}} </span>
+    <span>Es Impar: {{isOdd}} </span> -->
   </li>
 </ul>
