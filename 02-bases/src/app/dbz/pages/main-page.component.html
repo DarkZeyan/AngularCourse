@@ -10,6 +10,21 @@
 
   </div>
   <div class="col">
-    <dbz-add-character></dbz-add-character>
+    <!--
+      Para recibir los parametros del hijo al padre
+      Se utiliza la sintaxis de ()Output como (propiedad)="metodo a ejecutar"
+
+      En este caso se esta enviando el metodo onNewCharacter que se encuentra en el hijo
+      y se esta ejecutando en el padre, pero para recibir la informacion del hijo
+      para procesarla en el padre se debe ejecutar un metodo de respuesta en el padre
+
+      En este caso el metodo onNewCharacter recibe la informacion del hijo y la procesa
+
+      Se utiliza $event para recibir la informacion del evento
+      TypeScript mismo nos dice el tipo de dato que se esta recibiendo en el evento
+      en este caso, un objeto de tipo Character
+
+    -->
+    <dbz-add-character (onNewCharacter)="onNewCharacter($event)"></dbz-add-character>
   </div>
 </div>

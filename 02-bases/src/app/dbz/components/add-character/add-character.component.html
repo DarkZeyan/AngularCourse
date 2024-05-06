@@ -1,6 +1,11 @@
 <h4>Agregar personaje</h4>
+<!-- para el submit de los formularios en angular
+  Se utiliza el evento propio de Angular ngSubmit que previene
+  la recarga de la pagina y permite la ejecucion de la logica
 
-<form action="" class="row">
+  Los submits se manejan propiamente con el formulario y no con el boton
+-->
+<form action="" class="row" (ngSubmit)="emitCharacter()">
     <!-- Si yo quisiera que el value apunte a una propiedad
       Puedo encapsularlo con los corchetes para evaluarlo con una propiedad.
 
@@ -25,7 +30,7 @@
   type="number"
   placeholder="Poder">
 
-  <button type="submit" class="btn btn-primary" (click)="emitCharacter()">
+  <button type="submit" class="btn btn-primary">
     Agregar
   </button>
 

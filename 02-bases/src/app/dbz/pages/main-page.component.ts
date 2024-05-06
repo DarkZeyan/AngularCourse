@@ -6,12 +6,19 @@ import { Character } from '../interfaces/character.interface';
   templateUrl: 'main-page.component.html'
 })
 
-export class MainPageComponent{
+export class MainPageComponent {
 
   // Se crea un arreglo de objetos de tipo Character para enviarlos al componente hijo
   public characters: Character[] = [
-    {'name': 'Goku', 'power': 15000},
-    {'name': 'Vegeta', 'power': 7500},
-    {'name': 'Trunks', 'power': 6000},
+    { 'name': 'Goku', 'power': 15000 },
+    { 'name': 'Vegeta', 'power': 7500 },
+    { 'name': 'Trunks', 'power': 6000 },
   ];
+
+  onNewCharacter(character:Character):void{
+    console.log('Main Page');
+    console.log(character);
+    // this.characters.push(character);
+  }
+
 }
