@@ -4,7 +4,9 @@
 
 <div class="row">
   <div class="col">
-    <dbz-list></dbz-list>
+    <!-- Para enviar los parametros del padre al hijo -->
+    <!-- Se utiliza la sintaxis de ()Input como [propiedad]="variable a enviar" -->
+    <dbz-list [characterList]="characters"></dbz-list>
 
   </div>
   <div class="col">
