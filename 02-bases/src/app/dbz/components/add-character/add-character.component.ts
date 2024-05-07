@@ -30,7 +30,7 @@ export class AddCharacterComponent {
 
     // Los breakpoints se quedan exactamente en el lugar puesto
     // a pesar de reiniciar el navegador.
-    console.log(this.character);
+    // console.log(this.character);
 
     if(this.character.name.length === 0) return;
 
