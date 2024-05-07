@@ -18,6 +18,18 @@ export class AddCharacterComponent {
   };
 
   emitCharacter(): void {
+    // La sentencia debugger se utiliza para detener la ejecución del código y poder depurar
+    // el codigo en situaciones donde no se puede hacer con un console.log
+    // debugger;
+
+    // Adicionalmente cuando se hace el debug se puede ver el valor de las variables
+    // Siempre y cuando sea visible en el scope actual o tenga algun valor
+
+    // Cuando estamos en este punto, se pueden colocar breakpoints que continua
+    // la ejecucion hasta el punto deseado
+
+    // Los breakpoints se quedan exactamente en el lugar puesto
+    // a pesar de reiniciar el navegador.
     console.log(this.character);
 
     if(this.character.name.length === 0) return;
