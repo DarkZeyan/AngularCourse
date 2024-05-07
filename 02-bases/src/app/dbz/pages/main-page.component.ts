@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+
+
 import { Character } from '../interfaces/character.interface';
 import { DBZCharactersService } from '../services/dbz.service';
 
@@ -33,7 +35,24 @@ export class MainPageComponent {
   // como parametro
 
   // posteriormente, se utliza la variable dbzCharactersService para acceder a las propiedades y metodos del servicio
-  constructor(public dbzCharactersService: DBZCharactersService) {
+  constructor(private dbzCharactersService: DBZCharactersService) {
 
   }
+
+  // Los servicios nunca deben ser publicos, deben ser privados.
+
+  // Entonces debido a esto ahora se puede acceder a los personajes a traves de la propiedad characters
+ // establecida con un get, en el caso de las funciones, se accede a traves de los metodos del servicio
+  get characters(): Character[] {
+    return this.dbzCharactersService.characters;
+  }
+
+  onNewCharacter(character: Character): void {
+    this.dbzCharactersService.onNewCharacter(character);
+  }
+
+  deleteCharacterByID(id: string): void {
+    this.dbzCharactersService.deleteCharacterByID(id);
+  }
+
 }

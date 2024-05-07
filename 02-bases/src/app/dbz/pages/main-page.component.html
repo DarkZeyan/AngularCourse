@@ -6,8 +6,8 @@
   <div class="col">
     <!-- Para enviar los parametros del padre al hijo -->
     <!-- Se utiliza la sintaxis de ()Input como [propiedad]="variable a enviar" -->
-    <dbz-list (onDelete)="dbzCharactersService.deleteCharacterByID($event)"
-      [characterList]="dbzCharactersService.characters"></dbz-list>
+    <dbz-list (onDelete)="deleteCharacterByID($event)"
+      [characterList]="characters"></dbz-list>
 
   </div>
   <div class="col">
@@ -26,6 +26,6 @@
       en este caso, un objeto de tipo Character
 
     -->
-    <dbz-add-character (onNewCharacter)="dbzCharactersService.onNewCharacter($event)"></dbz-add-character>
+    <dbz-add-character (onNewCharacter)="onNewCharacter($event)"></dbz-add-character>
   </div>
 </div>
