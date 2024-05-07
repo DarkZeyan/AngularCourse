@@ -19,8 +19,11 @@ export class ListComponent {
   public onDelete:EventEmitter<string> = new EventEmitter();
 
   // Se crea un metodo para manejar la eliminacion de personajes
-  onDeleteCharacter(id:string):void{
+  onDeleteCharacter(id?:string):void{
     // TODO: Emitir el ID del personaje
+
+    if(!id) return;
+
     console.log({id});
     this.onDelete.emit(id);
   }
