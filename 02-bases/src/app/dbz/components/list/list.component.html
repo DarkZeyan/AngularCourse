@@ -18,7 +18,7 @@
     let isEven = even;
     let isOdd = odd;
     "
-    class="list-group-item"
+    class="list-group-item d-flex justify-content-between align-items-center"
     [ngClass]="{
       'list-group-item-dark': isLast,
       'list-group-item-primary': isFirst
@@ -47,6 +47,8 @@
 
     class="list-group-item {{ isFirst ? 'list-group-item-success' : ''}}">
   -->
+  <div>
+
     <span class="text-primary"> {{ i+1 }}. </span>
 
     <span>{{character.name}}</span> -
@@ -56,8 +58,9 @@
 
     <!-- <span>Es el primero {{isFirst}}</span>
     <span>Es el ultimo {{isLast}}</span> -->
+  </div>
 
-
+    <button (click)="onDeleteCharacter(i)" class="btn btn-danger">x</button>
 <!--
     <span>Es Par: {{isEven}} </span>
     <span>Es Impar: {{isOdd}} </span> -->

@@ -34,8 +34,8 @@ export class AddCharacterComponent {
 
     if(this.character.name.length === 0) return;
 
-    this.onNewCharacter.emit(this.character);
-    //  Emitir el personaje
+    this.onNewCharacter.emit({...this.character}); // Se emite el personaje como un nuevo objeto
+    //  Resetear el formulario
     this.character.name = '';
     this.character.power = 0;
   }

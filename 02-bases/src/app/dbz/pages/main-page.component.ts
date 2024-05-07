@@ -16,9 +16,15 @@ export class MainPageComponent {
   ];
 
   onNewCharacter(character:Character):void{
-    console.log('Main Page');
-    console.log(character);
-    // this.characters.push(character);
+    // console.log('Main Page');
+    // console.log(character);
+
+    this.characters.push(character);
+  }
+
+  onDeleteCharacter(index:number):void{
+    // Se elimina el personaje que venga con el index, 1 porque sera solamente ese elemento.
+    this.characters.splice(index, 1);
   }
 
 }
