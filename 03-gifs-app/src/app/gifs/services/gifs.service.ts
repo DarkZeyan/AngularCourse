@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Gif, SearchResponse } from '../components/interfaces/gifs.interfaces';
 
 
 // Cuando se trabaja con el provideIn root
@@ -15,7 +16,7 @@ export class GifsService {
   private _tagsHistory: string[] = [];
   private _apiKey: string = 'c6gCUjBKI0JrnfVk0JSLGqjfldFbsh3c';
   private _serviceUrl: string = 'https://api.giphy.com/v1/gifs';
-
+  public gifList: Gif[] = [];
   constructor(private http:HttpClient) { }
 
   get tagsHistory() {
@@ -56,9 +57,13 @@ export class GifsService {
       .set('limit','10')
       .set('q', tag);
 
-    this.http.get(`${this._serviceUrl}/search?`,{params})
-      .subscribe( (resp: any) => {
-        console.log(resp);
+      // La interfaz no se le coloca a la respuesta del observable, sino a la propiedad get.
+
+      // Las interfaces en typescript no fuerzan a que los objetos tengan una estructura
+      // Para tener la seguridad de que un objeto tenga una estructura, se debe hacer una clase que implemente esa interfaz
+    this.http.get<SearchResponse>(`${this._serviceUrl}/search?`,{params})
+      .subscribe( (resp) => {
+        this.gifList = resp.data;
       });
   }
 }
