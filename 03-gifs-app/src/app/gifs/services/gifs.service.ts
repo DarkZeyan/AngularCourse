@@ -16,11 +16,15 @@ export class GifsService {
   private _tagsHistory: string[] = [];
   private _apiKey: string = 'c6gCUjBKI0JrnfVk0JSLGqjfldFbsh3c';
   private _serviceUrl: string = 'https://api.giphy.com/v1/gifs';
-  public gifList: Gif[] = [];
+  private  _gifList: Gif[] = [];
   constructor(private http:HttpClient) { }
 
   get tagsHistory() {
     return [...this._tagsHistory]; // Como los arreglos en javascript se pasan como referencia, se hace una copia del arreglo para que no se modifique el original
+  }
+
+  get gifList() {
+    return [...this._gifList];
   }
 
   private organizedHistory(tag: string){
@@ -63,7 +67,7 @@ export class GifsService {
       // Para tener la seguridad de que un objeto tenga una estructura, se debe hacer una clase que implemente esa interfaz
     this.http.get<SearchResponse>(`${this._serviceUrl}/search?`,{params})
       .subscribe( (resp) => {
-        this.gifList = resp.data;
+        this._gifList = resp.data;
       });
   }
 }
