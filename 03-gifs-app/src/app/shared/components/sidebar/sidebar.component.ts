@@ -11,7 +11,7 @@ export class SidebarComponent {
   constructor(private gifsService: GifsService) {
 
   }
-  get tagsHistory(){
+  get tags(){
     return this.gifsService.tagsHistory;
   }
 
