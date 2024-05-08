@@ -36,6 +36,7 @@ export class GifsService {
 
     this._tagsHistory.unshift(tag); // se agrega al principio del arreglo
     this._tagsHistory = this._tagsHistory.splice(0,10); // Se limita a 10 elementos
+    this.saveLocalStorage(); // Se guarda en el local storage
   }
 
   searchTag(tag: string): void{
@@ -70,4 +71,11 @@ export class GifsService {
         this._gifList = resp.data;
       });
   }
+
+
+  // hacer uso de local storage
+  private saveLocalStorage():void{
+    localStorage.setItem('history', JSON.stringify(this._tagsHistory));
+  }
+
 }
